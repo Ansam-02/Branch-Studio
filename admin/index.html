@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#454F36">
+  <title>إدارة برانش | Branch Studio</title>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script type="module" src="/admin/admin.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#admin-main">انتقلي إلى لوحة الإدارة</a>
+  <header class="admin-header">
+    <a class="admin-brand" href="/" aria-label="العودة إلى Branch Studio">
+      <span class="admin-logo" aria-hidden="true"></span>
+    </a>
+    <div class="admin-identity"><span class="identity-dot" aria-hidden="true"></span><span>مساحة خاصة</span><a href="/">زيارة الموقع ↗</a></div>
+  </header>
+
+  <main class="admin-main" id="admin-main">
+    <div class="page-heading">
+      <div><p class="eyebrow">BRANCH / CONTROL ROOM</p><h1>إدارة الاستوديو</h1><p>المنتجات والطلبات والحجوزات ومواعيد الورش في مكان واحد.</p></div>
+      <button class="icon-button" id="refresh-button" type="button" aria-label="تحديث البيانات" title="تحديث البيانات">↻</button>
+    </div>
+
+    <p class="admin-notice" id="admin-notice" role="status" aria-live="polite">جاري تحميل البيانات…</p>
+
+    <section class="metrics" aria-label="ملخص الاستوديو">
+      <article class="metric"><span>طلبات تحتاج متابعة</span><strong id="metric-orders">—</strong><small>طلبات منتجات وتصاميم</small></article>
+      <article class="metric metric-clay"><span>حجوزات تنتظر الرد</span><strong id="metric-bookings">—</strong><small>طلبات مقاعد الورش</small></article>
+      <article class="metric metric-sage"><span>ورش قادمة منشورة</span><strong id="metric-workshops">—</strong><small>ظاهرة في تقويم الموقع</small></article>
+      <article class="metric"><span>منتجات منشورة</span><strong id="metric-products">—</strong><small>جاهزة للعرض في المتجر</small></article>
+    </section>
+
+    <nav class="admin-tabs" role="tablist" aria-label="أقسام الإدارة">
+      <button type="button" role="tab" id="tab-products" aria-controls="panel-products" aria-selected="false" data-admin-tab="products" tabindex="-1">المنتجات</button>
+      <button type="button" role="tab" id="tab-orders" aria-controls="panel-orders" aria-selected="true" data-admin-tab="orders">الطلبات</button>
+      <button type="button" role="tab" id="tab-bookings" aria-controls="panel-bookings" aria-selected="false" data-admin-tab="bookings">حجوزات الورش</button>
+      <button type="button" role="tab" id="tab-workshops" aria-controls="panel-workshops" aria-selected="false" data-admin-tab="workshops">جدول الورش</button>
+    </nav>
+
+    <section class="admin-panel" id="panel-products" role="tabpanel" aria-labelledby="tab-products" data-admin-panel="products" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">THE BRANCH SHELF</p><h2>إدارة المنتجات</h2><p class="panel-description">أضيفي القطع وصورها وأسعارها، وحدّدي الكمية المتوفرة قبل النشر.</p></div><div class="panel-actions"><a class="button button-outline" href="/products/" target="_blank" rel="noopener">شوفي المتجر ↗</a><button class="button button-dark" id="new-product-button" type="button">＋ منتج جديد</button></div></div>
+      <p class="admin-notice" id="products-notice" role="status" aria-live="polite"></p>
+      <form class="workshop-editor product-editor" id="product-form" hidden>
+        <div class="editor-heading"><div><p class="eyebrow">PRODUCT DETAILS</p><h3 id="product-form-title">إضافة منتج</h3></div><button class="icon-button" id="close-product-form" type="button" aria-label="إغلاق نموذج المنتج">×</button></div>
+        <input type="hidden" name="id">
+        <input type="hidden" name="version">
+        <div class="editor-grid product-editor-grid">
+          <label class="editor-wide">اسم المنتج<input name="name" maxlength="120" required></label>
+          <label>السعر الأصلي، شيكل<input name="price" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" required></label>
+          <label>الكمية المتوفرة<input name="stock" type="number" min="0" max="100000" step="1" required></label>
+          <label class="publish-toggle editor-wide"><input name="discountEnabled" type="checkbox"><span>في خصم على المنتج</span></label>
+          <div class="product-discount-fields editor-wide" id="product-sale-fields" hidden>
+            <label>سعر العرض، شيكل<input name="salePrice" type="number" min="0" max="1000000" step="0.01" inputmode="decimal" aria-describedby="product-sale-help" disabled></label>
+            <p class="field-hint" id="product-sale-help">سعر العرض لازم يكون أقل من السعر الأصلي. شيلي علامة الخصم لإرجاع السعر العادي.</p>
+          </div>
+          <label class="editor-wide">وصف المنتج<textarea name="description" maxlength="2000" rows="4" placeholder="الحجم، الخامة، الألوان، وأي تفاصيل بتساعد الزبون يختار." required></textarea></label>
+          <div class="editor-wide product-image-editor">
+            <label class="upload-label" for="product-images-input">صور المنتج <span>لحد ٥ صور · JPG أو PNG أو WebP · ٥ ميغابايت للصورة</span></label>
+            <input id="product-images-input" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="product-images-help">
+            <p class="field-hint" id="product-images-help">أول صورة هي غلاف المنتج. اختاري «اجعليها الغلاف» لتغيير الترتيب.</p>
+            <div class="product-image-previews" id="product-image-previews" aria-label="صور المنتج"></div>
+            <p class="form-status" id="product-upload-status" role="status" aria-live="polite"></p>
+          </div>
+          <label class="publish-toggle editor-wide"><input name="published" type="checkbox"><span>إظهار المنتج في المتجر</span></label>
+          <p class="field-hint editor-wide">المسودة بتبقى عندك لحد ما تنشريها. المنتج المنشور يحتاج صورة واحدة على الأقل، والكمية صفر بتظهره كغير متوفر.</p>
+        </div>
+        <div class="editor-actions"><button class="button button-dark" type="submit">حفظ المنتج</button><button class="button button-outline" id="cancel-product-form" type="button">إلغاء</button><p class="form-status" id="product-status" role="status" aria-live="polite"></p></div>
+      </form>
+      <div class="product-list-toolbar"><label class="search-field"><span class="visually-hidden">ابحثي عن منتج بالاسم أو الوصف</span><input id="product-search" type="search" placeholder="ابحثي عن منتج…"></label><label><span class="visually-hidden">تصفية ظهور المنتجات</span><select id="product-filter"><option value="">كل المنتجات</option><option value="published">منشورة</option><option value="draft">مسودات</option><option value="sold-out">نفدت كميتها</option></select></label></div>
+      <div class="admin-product-grid" id="admin-products-list"></div>
+      <p class="empty-state" id="products-empty" hidden>ما في منتجات بعد. أضيفي أول قطعة، وارفعي صورها وحدّدي سعرها.</p>
+    </section>
+
+    <section class="admin-panel" id="panel-orders" role="tabpanel" aria-labelledby="tab-orders" data-admin-panel="orders">
+      <div class="panel-heading"><div><p class="eyebrow">CUSTOMER ORDERS</p><h2>طلبات العملاء</h2></div><div class="filters"><label class="search-field"><span class="visually-hidden">ابحثي بالاسم أو الهاتف أو التفاصيل</span><input id="order-search" type="search" placeholder="اسم، رقم، أو طلب…"></label><label><span class="visually-hidden">تصفية حالة الطلب</span><select id="order-filter"><option value="">كل الحالات</option><option value="new">جديد</option><option value="reviewing">قيد المراجعة</option><option value="confirmed">مؤكد</option><option value="completed">مكتمل</option><option value="cancelled">ملغي</option></select></label></div></div>
+      <div class="table-scroll"><table><thead><tr><th>الطلب</th><th>العميل</th><th>التفاصيل</th><th>الكمية</th><th>التاريخ</th><th>الحالة</th></tr></thead><tbody id="orders-body"></tbody></table></div>
+      <p class="empty-state" id="orders-empty" hidden>ما في طلبات مطابقة.</p>
+    </section>
+
+    <section class="admin-panel" id="panel-bookings" role="tabpanel" aria-labelledby="tab-bookings" data-admin-panel="bookings" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">WORKSHOP GUESTS</p><h2>حجوزات الورش</h2></div><label class="filter-select"><span class="visually-hidden">تصفية حالة الحجز</span><select id="booking-filter"><option value="">كل الحالات</option><option value="requested">بانتظار الرد</option><option value="confirmed">مؤكد</option><option value="cancelled">ملغي</option></select></label></div>
+      <div class="table-scroll"><table><thead><tr><th>الورشة</th><th>الموعد</th><th>مسؤول الحجز</th><th>أسماء المقاعد</th><th>المقاعد</th><th>تاريخ الطلب</th><th>الحالة</th></tr></thead><tbody id="bookings-body"></tbody></table></div>
+      <p class="empty-state" id="bookings-empty" hidden>ما في حجوزات مطابقة.</p>
+    </section>
+
+    <section class="admin-panel" id="panel-workshops" role="tabpanel" aria-labelledby="tab-workshops" data-admin-panel="workshops" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">ART WORKSHOPS</p><h2>مواعيد الورش</h2></div><button class="button button-dark" id="new-workshop-button" type="button">＋ ورشة جديدة</button></div>
+      <form class="workshop-editor" id="workshop-form" hidden>
+        <div class="editor-heading"><div><p class="eyebrow">WORKSHOP DETAILS</p><h3 id="workshop-form-title">إضافة موعد</h3></div><button class="icon-button" id="close-workshop-form" type="button" aria-label="إغلاق النموذج">×</button></div>
+        <input type="hidden" name="id">
+        <div class="editor-grid">
+          <label>اسم الورشة<input name="title" maxlength="120" required></label>
+          <label>التاريخ والوقت<input name="startsAt" type="datetime-local" required></label>
+          <label>المدينة<input name="city" maxlength="80" required></label>
+          <label>المكان<input name="venue" maxlength="160"></label>
+          <label>السعر للفرد، شيكل<input name="price" type="number" min="0" step="0.01" inputmode="decimal"></label>
+          <label>عدد المقاعد<input name="capacity" type="number" min="1" max="500" required></label>
+          <label class="publish-toggle"><input name="published" type="checkbox"><span>إظهار الورشة في التقويم العام</span></label>
+        </div>
+        <div class="editor-actions"><button class="button button-dark" type="submit">حفظ الورشة</button><button class="button button-outline" id="cancel-workshop-form" type="button">إلغاء</button><p class="form-status" id="workshop-status" role="status" aria-live="polite"></p></div>
+      </form>
+      <div class="table-scroll"><table><thead><tr><th>الورشة</th><th>التاريخ</th><th>المكان</th><th>المقاعد</th><th>الظهور</th><th>إجراء</th></tr></thead><tbody id="workshops-body"></tbody></table></div>
+      <p class="empty-state" id="workshops-empty" hidden>ما في ورش بعد. أضيفي أول موعد من الزر أعلاه.</p>
+    </section>
+
+    <p class="data-note">بيانات العملاء خاصة ولا تظهر إلا لحساب الإدارة المصرّح له. سجّلي الخروج من Cloudflare عند استخدام جهاز مشترك.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* Shared navigation and dedicated page layouts. */
+.landing-page { --olive: var(--green); background-color: var(--cream); }
+.landing-page::after { content: none; }
+.site-header { position: relative; z-index: 10; flex-wrap: nowrap; min-height: 124px; padding-block: 12px; direction: ltr; }
+.site-header>.wordmark { margin-right: auto; }
+.site-header>:not(.wordmark) { direction: rtl; }
+.brand-logo { display: block; width: 116px; height: 100px; color: var(--green); background-color: currentColor; -webkit-mask: url("/assets/branch-logo-olive.png") center / contain no-repeat; mask: url("/assets/branch-logo-olive.png") center / contain no-repeat; }
+.footer-wordmark .brand-logo { width: 140px; height: 120px; color: var(--cream); }
+.site-header .desktop-nav { display: none; }
+.site-header .header-cta { margin-inline-start: 0; }
+.site-header .main-nav { gap: clamp(14px, 1.6vw, 24px); font-size: 12px; }
+.main-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.main-nav a[aria-current="page"] { color: var(--deep-olive); font-weight: 600; }
+.mobile-menu { display: block; flex: 0 0 auto; }
+.mobile-menu>summary { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--deep-olive); border-radius: 50%; list-style: none; cursor: pointer; color: var(--deep-olive); transition: background .25s; }
+.mobile-menu>summary:hover { background: var(--sage); }
+.mobile-menu>summary::-webkit-details-marker { display: none; }
+.menu-icon { display: grid; gap: 5px; width: 20px; }
+.menu-icon>span { display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s, opacity .25s; }
+.mobile-menu[open] .menu-icon>span:first-child { transform: translateY(7px) rotate(45deg); }
+.mobile-menu[open] .menu-icon>span:nth-child(2) { opacity: 0; }
+.mobile-menu[open] .menu-icon>span:last-child { transform: translateY(-7px) rotate(-45deg); }
+.mobile-nav { position: absolute; inset: calc(100% - 5px) var(--gutter) auto auto; width: min(360px, calc(100% - var(--gutter) - var(--gutter))); max-height: calc(100dvh - 150px); overflow-y: auto; overscroll-behavior: contain; display: grid; padding: 15px; border: 1px solid var(--line); border-radius: 25px; background: var(--paper-2); box-shadow: 0 14px 32px rgb(var(--green-rgb) / 0.094); }
+.mobile-nav>a { min-height: 48px; padding: 10px 15px; border-radius: 13px; font-size: 14px; }
+.mobile-nav>a[aria-current="page"] { background: var(--sage); font-weight: 600; }
+.mobile-nav .mobile-request { display: flex; justify-content: space-between; background: var(--deep-olive); color: var(--cream); margin-top: 7px; }
+.mobile-nav>a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.page-breadcrumb { width: min(var(--page-width), 100%); margin: 10px auto 0; padding: 14px var(--gutter); display: flex; gap: 14px; color: var(--muted); font-size: 11px; }
+.page-breadcrumb>a { text-decoration: underline; text-underline-offset: 4px; }
+.inner-page main>.section, .inner-page .studio-inner { padding-top: 28px; padding-bottom: 60px; }
+.inner-page .section-heading h1 { margin: 0; font-size: 30px; font-weight: 500; line-height: 1.6; letter-spacing: 0; }
+.inner-page .workshops-section, .inner-page .request-section { border-top: 0; }
+.inner-page .story-section { padding-top: 45px; padding-bottom: 65px; }
+.inner-page .story-copy h1 { font-size: clamp(28px, 3vw, 40px); font-weight: 500; line-height: 1.5; margin: 24px 0; letter-spacing: -.03em; }
+.inner-page .gallery-section { margin-top: 0; margin-bottom: 24px; }
+.inner-page .gallery-inner { padding-top: 32px; padding-bottom: 40px; }
+.inner-page .privacy-strip { margin-top: 10px; }
+.page-intro { max-width: var(--page-width); margin: auto; padding: 28px var(--gutter) 32px; }
+.inner-page .section-heading, .inner-page .page-intro { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: 32px 48px; }
+.inner-page .section-heading { margin-bottom: 28px; }
+.page-heading-copy { min-width: 0; }
+.page-eyebrow { font-size: 12px; color: var(--accent); margin: 0 0 14px; }
+.inner-page .section-heading .eyebrow { margin-bottom: 14px; }
+.page-display, .inner-page .section-display { font: 400 80px/1.05 var(--font-display); letter-spacing: 0; margin: 0; text-align: left; }
+.page-intro h1 { font-size: 30px; font-weight: 500; line-height: 1.6; letter-spacing: 0; margin: 0; }
+.page-heading-copy>.section-note { max-width: 430px; margin: 14px 0 0; font-size: 14px; line-height: 2; }
+.inner-page .workshop-cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.inner-page .workshop-card:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; direction: ltr; background: transparent; border-radius: 0; }
+.inner-page .workshop-card:only-child>img { aspect-ratio: 6 / 5; height: auto; border-radius: 8px; }
+.inner-page .workshop-card:only-child .workshop-card-copy { align-self: center; padding: 24px 0; direction: rtl; }
+.inner-page .workshop-card:only-child h2 { font-size: 30px; }
+.inner-page .workshop-card:only-child .workshop-card-copy p { font-size: 14px; }
+.site-footer { padding-top: 42px; }
+.footer-display { font-size: clamp(38px, 6.6vw, 92px); padding-bottom: 30px; }
+.footer-display>span { font-size: 70px; bottom: 40px; }
+.home-explore { padding-top: 65px; padding-bottom: 45px; }
+.home-section-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 28px; }
+.home-section-heading h2 { font-size: clamp(29px, 3vw, 42px); line-height: 1.5; margin: 0; font-weight: 500; }
+.home-section-heading .eyebrow { margin-bottom: 8px; }
+.home-section-heading>p { max-width: 300px; color: var(--muted); font-size: 13px; margin: 0 0 7px; }
+.home-paths { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 18px; }
+.home-path { position: relative; min-width: 0; min-height: 350px; border-radius: 2.5rem; overflow: hidden; color: var(--white); background: var(--deep-olive); isolation: isolate; }
+.home-path>img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
+.home-path:hover>img { transform: scale(1.04); }
+.home-path::after { content: ""; position: absolute; inset: 20% 0 0; background: linear-gradient(transparent, rgb(var(--green-rgb) / 0.941)); z-index: 1; }
+.home-path-copy { position: absolute; z-index: 2; inset: auto 27px 26px; padding-inline-end: 34px; }
+.home-path-kicker { display: block; font: 500 8px/1.5 "Inter", sans-serif; letter-spacing: 1.6px; margin-bottom: 10px; }
+.home-path h3 { font-size: clamp(21px, 2vw, 28px); line-height: 1.5; font-weight: 500; margin: 0 0 8px; }
+.home-path p { font-size: 12px; margin: 0; }
+.home-path-arrow { position: absolute; inset-inline-end: 0; bottom: 4px; font: 28px/1 "Inter", sans-serif; }
+.home-path-workshops { border-start-start-radius: 5rem; }
+.home-path-workshops>img { object-position: 60% 46%; }
+.home-path-services>img { object-position: 50% 55%; }
+.home-path-products>img { object-position: 50% 30%; }
+.home-path-products { border-end-end-radius: 5rem; }
+.home-story-link { margin-top: 28px; padding: 20px 0; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); color: var(--accent); font-size: 12px; }
+.home-story-link>span:last-child { white-space: nowrap; }
+.home-story-link>span:last-child>span { margin-inline-start: 12px; }
+.landing-page .privacy-strip { padding-bottom: 20px; }
+@media (max-width: 1050px) {
+  .site-header { justify-content: flex-start; flex-wrap: nowrap; gap: 20px; }
+  .home-paths { gap: 14px; }
+  .home-path { min-height: 320px; }
+  .home-path-copy { inset-inline: 22px; }
+}
+@media (max-width: 850px) {
+  .site-header { min-height: 124px; padding-block: 12px; }
+  .home-section-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .home-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-path-workshops { grid-column: 1 / -1; min-height: 320px; }
+  .home-path-workshops>img { object-position: 50% 42%; }
+  .home-paths .home-path:not(:first-child) { min-height: 300px; }
+  .footer-display>span { font-size: 55px; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .inner-page .section-heading, .inner-page .page-intro { gap: 28px; }
+  .page-display, .inner-page .section-display { font-size: 60px; }
+  .inner-page .workshop-card:only-child { gap: 28px; }
+  .inner-page .workshop-card:only-child h2 { font-size: 25px; }
+}
+@media (max-width: 700px) {
+  .inner-page .section-heading, .inner-page .page-intro { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .inner-page .page-intro { padding-block: 20px 28px; }
+  .page-display, .inner-page .section-display { font-size: 56px; }
+  .inner-page .section-heading h1, .page-intro h1 { font-size: 26px; }
+  .inner-page .workshop-card:only-child { grid-template-columns: minmax(0, 1fr); gap: 0; background: var(--sand); border-radius: 8px; }
+  .inner-page .workshop-card:only-child>img { aspect-ratio: 4 / 3; border-radius: 0; }
+  .inner-page .workshop-card:only-child .workshop-card-copy { padding: 24px; }
+  .inner-page .workshop-card:only-child h2 { font-size: 26px; }
+}
+@media (max-width: 600px) {
+  .site-header { min-height: 114px; justify-content: space-between; gap: 16px; }
+  .site-header .brand-logo { width: 104px; height: 90px; }
+  .site-header .header-cta { display: none; }
+  .page-breadcrumb { margin-top: 0; padding-block: 9px; font-size: 10px; }
+  .inner-page main>.section, .inner-page .studio-inner { padding-top: 28px; padding-bottom: 50px; }
+  .inner-page .gallery-section { margin-top: 14px; }
+  .inner-page .gallery-inner { padding-block: 28px 36px; }
+  .inner-page .story-section { padding-top: 28px; padding-bottom: 40px; }
+  .inner-page .story-copy { order: -1; }
+  .home-explore { padding-top: 42px; padding-bottom: 20px; }
+  .home-paths { grid-template-columns: 1fr; gap: 16px; }
+  .home-path-workshops { grid-column: auto; }
+  .home-paths .home-path, .home-paths .home-path:not(:first-child) { min-height: 280px; }
+  .home-path h3 { font-size: 28px; }
+  .home-section-heading>p { max-width: 280px; font-size: 12px; }
+  .home-story-link { flex-direction: column; gap: 10px; margin-top: 22px; font-size: 12px; }
+  .footer-display { font-size: clamp(33px, 8.8vw, 52px); }
+  .footer-display>span { font-size: 30px; right: 0; bottom: 40px; }
+}
+@media (max-width: 360px) {
+  .page-display, .inner-page .section-display { font-size: 48px; }
+}

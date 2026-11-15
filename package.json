@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler pages dev .",
+    "db:local:setup": "wrangler d1 execute branch-studio-orders --local --file=./schema.sql && wrangler d1 execute branch-studio-orders --local --file=./seed.sql",
+    "db:remote:setup": "wrangler d1 execute branch-studio-orders --remote --file=./schema.sql && wrangler d1 execute branch-studio-orders --remote --file=./seed.sql",
+    "db:remote:schema": "wrangler d1 execute branch-studio-orders --remote --file=./schema.sql",
+    "deploy": "wrangler pages deploy . --project-name=branch-studio",
+    "test": "node --test",
+    "check:pagination": "node --check lib/pagination.js",
+    "check": "node --check app.js && node --check storefront.js && node --check visual-motion.js && node --check admin/admin.js && node --check lib/palestine-time.js && node --check functions/api/_middleware.js && node --check functions/api/orders.js && node --check functions/api/workshops.js && node --check functions/api/workshop-bookings.js && node --check functions/api/admin/overview.js && node --check functions/api/admin/orders.js && node --check functions/api/admin/bookings.js && node --check functions/api/admin/workshops.js && node --check shop.js && node --check lib/cart.js && node --check lib/commerce.js && node --check admin/products.js && node --check functions/api/products.js && node --check functions/api/checkout.js && node --check functions/api/admin/products.js && node --check functions/api/admin/product-images.js && node --check 'functions/media/[id].js' && node --check scripts/local-preview.mjs",
+    "dev:admin": "node scripts/local-preview.mjs",
+    "db:local:schema": "wrangler d1 execute branch-studio-orders --local --file=./schema.sql",
+    "storage:setup": "wrangler r2 bucket create branch-studio-products"
+  },
+  "devDependencies": {
+    "wrangler": "^4.161.0"
+  }
+}

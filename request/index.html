@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F0DF">
+  <meta name="description" content="اطلبي قطعة يدوية أو رتّبي ورشة فنية خاصة مع برانش ستوديو في فلسطين.">
+  <title>اطلبي قطعة | برانش ستوديو</title>
+  <link rel="preload" href="/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/storefront.css?v=four-color">
+  <link rel="stylesheet" href="/pages.css?v=balanced-pages">
+  <link rel="stylesheet" href="/shop.css?v=balanced-pages">
+  <script type="module" src="/storefront.js"></script>
+  <script type="module" src="/visual-motion.js"></script>
+  <script type="module" src="/shop.js"></script>
+</head>
+<body class="inner-page request-page">
+  <a class="skip-link" href="#main">انتقلي إلى المحتوى</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="برانش ستوديو، الصفحة الرئيسية"><span class="brand-logo" aria-hidden="true"></span></a>
+    <nav class="main-nav desktop-nav" aria-label="القائمة الرئيسية">
+        <a href="/">الرئيسية</a>
+        <a href="/products/">المنتجات المتوفرة</a>
+        <a href="/workshops/">الورش الفنية</a>
+        <a href="/services/">خدماتنا</a>
+        <a href="/gallery/">من ورشنا</a>
+    </nav>
+    <a class="header-cta" href="/request/" aria-current="page">اطلبي قطعة <span aria-hidden="true">↙</span></a>
+    <a class="cart-link" href="/cart/" aria-label="سلة المشتريات" title="سلة المشتريات"><span class="cart-icon" aria-hidden="true"></span><span data-cart-count aria-hidden="true">0</span></a>
+    <details class="mobile-menu">
+      <summary aria-label="القائمة الرئيسية"><span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></summary>
+      <nav class="mobile-nav" aria-label="أقسام الموقع">
+        <a href="/">الرئيسية</a>
+        <a href="/products/">المنتجات المتوفرة</a>
+        <a href="/workshops/">الورش الفنية</a>
+        <a href="/services/">خدماتنا</a>
+        <a href="/gallery/">من ورشنا</a>
+        <a class="mobile-request" href="/request/" aria-current="page">اطلبي قطعة <span aria-hidden="true">↙</span></a>
+      </nav>
+    </details>
+  </header>
+  <main id="main">
+    <div class="page-breadcrumb"><a href="/">الرئيسية</a><span aria-hidden="true">/</span><span>اطلبي قطعة</span></div>
+    <section class="section request-section" id="request" aria-labelledby="request-title">
+      <div class="section-heading" data-reveal>
+        <div class="page-heading-copy"><p class="eyebrow">خلّينا نبدأ</p><h1 id="request-title">احكيلنا عن فكرتك.</h1><p class="section-note">بنتواصل معك لتأكيد التفاصيل والسعر والتوفر قبل اعتماد الطلب.</p></div>
+        <p class="section-display" dir="ltr" lang="en">MAKE IT<br>PERSONAL.</p>
+      </div>
+      <div class="request-layout">
+        <aside class="request-aside">
+          <img src="/assets/clay-pieces.jpg" alt="قطع خزفية في مرحلة التشكيل" loading="lazy">
+          <div><p class="eyebrow">كيف بنمشي سوا</p><ol><li>ابعتي فكرتك وتفاصيلها.</li><li>بنراجع التوفر والسعر وموعد التجهيز.</li><li>بنبدأ بعد ما تأكدي التفاصيل.</li></ol><p class="request-time">القطع الخاصة تحتاج عادةً ١٠–١٤ يوم.</p></div>
+        </aside>
+        <div class="request-main">
+      <div class="request-tabs" role="group" aria-label="نوع الطلب">
+        <button type="button" data-request-tab="custom" aria-pressed="true">كوب حسب الطلب</button>
+        <button type="button" data-request-tab="product" aria-pressed="false">قطعة أو بوكس</button>
+        <button type="button" data-request-tab="favor" aria-pressed="false">توزيعات</button>
+        <button type="button" data-request-tab="workshop" aria-pressed="false">ورشة خاصة</button>
+      </div>
+
+      <form class="request-form" data-order-form data-order-type="custom">
+        <div class="form-intro"><span class="form-kicker">01 / CUSTOM PIECE</span><h2>كوب بتفاصيلك</h2><p>اكتبي فكرتك، وبنرجعلك بالسعر ووقت التجهيز قبل أي تأكيد.</p></div>
+        <div class="form-grid">
+          <label>اسمك<input name="name" autocomplete="name" maxlength="80" required></label>
+          <label>رقم الهاتف<input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
+          <label>المدينة<input name="city" autocomplete="address-level2" maxlength="80" required></label>
+          <label class="field-wide">تفاصيل الكوب<textarea name="details" maxlength="1500" rows="4" placeholder="الألوان، الاسم، الرسمة، أو أي تفصيل ببالك…" required></textarea></label>
+          <input type="hidden" name="quantity" value="1">
+          <label class="consent field-wide"><input name="privacyAccepted" type="checkbox" required><span>أوافق على استخدام بياناتي للتواصل بخصوص هذا الطلب. <a href="#privacy">تفاصيل الخصوصية</a></span></label>
+        </div>
+        <button class="button button-dark" type="submit">أرسلي طلب الكوب <span aria-hidden="true">←</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <form class="request-form" data-order-form data-order-type="product" hidden>
+        <div class="form-intro"><span class="form-kicker">02 / READY PIECE</span><h2>قطعة جاهزة أو بوكس طين</h2><p>اسألينا عن المتوفر؛ بنؤكد القطعة والتوصيل قبل التجهيز والدفع عند الاستلام.</p></div>
+        <div class="form-grid">
+          <label>اسمك<input name="name" autocomplete="name" maxlength="80" required></label>
+          <label>رقم الهاتف<input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
+          <label>المدينة<input name="city" autocomplete="address-level2" maxlength="80" required></label>
+          <label>عنوان التوصيل<input name="address" autocomplete="street-address" maxlength="300" required></label>
+          <label>القطعة المطلوبة<input name="details" maxlength="500" required></label>
+          <label>الكمية<input name="quantity" type="number" min="1" max="10000" value="1" required></label>
+          <label class="consent field-wide"><input name="privacyAccepted" type="checkbox" required><span>أوافق على استخدام بياناتي للتواصل بخصوص هذا الطلب. <a href="#privacy">تفاصيل الخصوصية</a></span></label>
+        </div>
+        <button class="button button-dark" type="submit">أرسلي طلب التوفر <span aria-hidden="true">←</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <form class="request-form" data-order-form data-order-type="favor" hidden>
+        <div class="form-intro"><span class="form-kicker">03 / YOUR OCCASION</span><h2>توزيعات من فكرتكم</h2><p>السعر والموعد يتأكدوا معك قبل اعتماد الطلب.</p></div>
+        <div class="form-grid">
+          <label>اسمك<input name="name" autocomplete="name" maxlength="80" required></label>
+          <label>رقم الهاتف<input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
+          <label>المدينة<input name="city" autocomplete="address-level2" maxlength="80" required></label>
+          <label>العدد<input name="quantity" type="number" min="1" max="10000" required></label>
+          <label>موعد المناسبة، اختياري<input name="eventDate" type="date"></label>
+          <label class="field-wide">تفاصيل الفكرة<textarea name="details" maxlength="1500" rows="4" required></textarea></label>
+          <label class="consent field-wide"><input name="privacyAccepted" type="checkbox" required><span>أوافق على استخدام بياناتي للتواصل بخصوص هذا الطلب. <a href="#privacy">تفاصيل الخصوصية</a></span></label>
+        </div>
+        <button class="button button-dark" type="submit">أرسلي طلب التوزيعات <span aria-hidden="true">←</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <form class="request-form" data-order-form data-order-type="workshop" hidden>
+        <div class="form-intro"><span class="form-kicker">04 / PRIVATE TABLE</span><h2>ورشة فنية خاصة أو موعد الورشة الجاية</h2><p>شاركونا فكرة الورشة الفنية والمدينة والعدد والموعد المقترح، أو اتركي رقمك لنخبرك عند إعلان ورشة جديدة.</p></div>
+        <div class="form-grid">
+          <label>اسمك<input name="name" autocomplete="name" maxlength="80" required></label>
+          <label>رقم الهاتف<input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
+          <label>المدينة<input name="city" autocomplete="address-level2" maxlength="80" required></label>
+          <label>عدد المشاركين<input name="quantity" type="number" min="1" max="10000" required></label>
+          <label>الموعد المقترح، اختياري<input name="eventDate" type="date"></label>
+          <label class="field-wide">تفاصيل إضافية<textarea name="details" maxlength="1500" rows="3"></textarea></label>
+          <label class="consent field-wide"><input name="privacyAccepted" type="checkbox" required><span>أوافق على استخدام بياناتي للتواصل بخصوص هذا الطلب. <a href="#privacy">تفاصيل الخصوصية</a></span></label>
+        </div>
+        <button class="button button-dark" type="submit">أرسلي طلب الورشة <span aria-hidden="true">←</span></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+        </div>
+      </div>
+    </section>
+    <section class="privacy-strip" id="privacy" aria-label="الخصوصية">
+      <details><summary>تفاصيل الخصوصية</summary><p>نستخدم الاسم ورقم الهاتف والمدينة وعنوان التوصيل وتفاصيل الطلب وأسماء المشاركين في الحجز للتواصل وإدارة الطلب فقط. لا نطلب بيانات بطاقات الدفع. نحفظ اختيارات السلة على جهازك، وبيانات محاولة إرسال غير مؤكدة مؤقتًا خلال جلسة التصفح لمنع تكرار الطلب. للوصول إلى بياناتك أو طلب حذفها، تواصلي معنا عبر <a href="https://wa.me/970568387456" target="_blank" rel="noopener noreferrer">واتساب</a>.</p></details>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <a class="footer-display" href="/request/" dir="ltr" lang="en" aria-label="اطلبي قطعة من برانش">LET’S MAKE<br>SOMETHING YOURS.<span aria-hidden="true">↗</span></a>
+    <a class="wordmark footer-wordmark" href="/" aria-label="برانش ستوديو، الصفحة الرئيسية"><span class="brand-logo" aria-hidden="true"></span></a>
+    <span>مصنوع بحب في فلسطين <span aria-hidden="true">✳</span> 2026</span>
+    <a href="https://wa.me/970568387456" target="_blank" rel="noopener noreferrer">تواصلي مع برانش ↗</a>
+    <a class="footer-privacy" href="#privacy">الخصوصية</a>
+  </footer>
+</body>
+</html>

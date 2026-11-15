@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "branch-studio",
+  "compatibility_date": "2026-11-13",
+  "pages_build_output_dir": ".",
+  "vars": {
+    "ACCESS_TEAM_DOMAIN": "branch-studio-pages.cloudflareaccess.com",
+    "ACCESS_AUD": "a455f80357056f2c3efd44e1b787d1a72bbf1064e3a368cd9b5314fe39e245a1",
+    "ADMIN_EMAIL": "ansamjad02@gmail.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "ORDERS",
+      "database_name": "branch-studio-orders",
+      "database_id": "7e254bfa-8c62-42e6-b75e-77aefe3fa9f5"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "PRODUCT_IMAGES",
+      "bucket_name": "branch-studio-products"
+    }
+  ]
+}

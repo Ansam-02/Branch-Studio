@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F0DF">
+  <meta name="description" content="تصفّحي منتجات برانش المصنوعة يدويًا، اختاري قطعك وأضيفيها للسلة. الدفع عند الاستلام والتوصيل بالتواصل.">
+  <title>المنتجات المتوفرة | برانش ستوديو</title>
+  <link rel="preload" href="/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/storefront.css?v=four-color">
+  <link rel="stylesheet" href="/pages.css?v=balanced-pages">
+  <link rel="stylesheet" href="/shop.css?v=cart-feedback">
+  <link rel="stylesheet" href="/products.css?v=balanced-pages">
+  <script type="module" src="/visual-motion.js"></script>
+  <script type="module" src="/shop.js?v=cart-feedback"></script>
+</head>
+<body class="inner-page products-page">
+    <a class="skip-link" href="#main">انتقلي إلى المحتوى</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="برانش ستوديو، الصفحة الرئيسية"><span class="brand-logo" aria-hidden="true"></span></a>
+    <nav class="main-nav desktop-nav" aria-label="القائمة الرئيسية">
+        <a href="/">الرئيسية</a>
+        <a href="/products/" aria-current="page">المنتجات المتوفرة</a>
+        <a href="/workshops/">الورش الفنية</a>
+        <a href="/services/">خدماتنا</a>
+        <a href="/gallery/">من ورشنا</a>
+    </nav>
+    <a class="header-cta" href="/request/">اطلبي قطعة <span aria-hidden="true">↙</span></a>
+    <a class="cart-link" href="/cart/" aria-label="سلة المشتريات" title="سلة المشتريات"><span class="cart-icon" aria-hidden="true"></span><span data-cart-count aria-hidden="true">0</span></a>
+    <details class="mobile-menu">
+      <summary aria-label="القائمة الرئيسية"><span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></summary>
+      <nav class="mobile-nav" aria-label="أقسام الموقع">
+        <a href="/">الرئيسية</a>
+        <a href="/products/" aria-current="page">المنتجات المتوفرة</a>
+        <a href="/workshops/">الورش الفنية</a>
+        <a href="/services/">خدماتنا</a>
+        <a href="/gallery/">من ورشنا</a>
+        <a class="mobile-request" href="/request/">اطلبي قطعة <span aria-hidden="true">↙</span></a>
+      </nav>
+    </details>
+  </header>
+  <main id="main">
+    <div class="page-breadcrumb"><a href="/">الرئيسية</a><span aria-hidden="true">/</span><span>المنتجات المتوفرة</span></div>
+    <section class="page-intro" aria-labelledby="products-title">
+      <div class="page-heading-copy">
+        <p class="page-eyebrow">رفّ برانش <span aria-hidden="true">✳</span> قطع صغيرة، بتفاصيلها</p>
+        <h1 id="products-title">المنتجات المتوفرة</h1>
+        <p class="products-intro-note">قطع يدوية، للّحظات اللي كل يوم.</p>
+      </div>
+      <p class="page-display" dir="ltr" lang="en" aria-hidden="true">PIECES THAT<br>FEEL LIKE YOU.</p>
+    </section>
+
+    <p class="shop-notice" id="catalog-load-status" role="status">جاري تحميل المنتجات…</p>
+    <p class="shop-notice" id="shop-message" data-shop-message role="status" aria-live="polite"></p>
+    <section class="shop-catalog" id="shop-catalog" aria-labelledby="catalog-list-title" hidden>
+      <h2 class="shop-sr-only" id="catalog-list-title">قطع برانش المتوفرة</h2>
+      <div class="shop-toolbar"><p>اختاري قطعة بتشبهك. الدفع عند الاستلام، وبنتواصل معك لتأكيد التوصيل.</p><a class="text-link" href="/cart/">روحي للسلة <span aria-hidden="true">←</span></a></div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+    <noscript><p class="shop-notice">فعّلي JavaScript لتصفح المنتجات وإضافتها للسلة، أو <a class="text-link" href="/request/">تواصلي معنا لطلب قطعة</a>.</p></noscript>
+    <section class="catalog-coming-soon" aria-labelledby="catalog-empty-title" hidden>
+      <figure class="catalog-studio-photo" data-reveal>
+        <img src="/assets/clay-pieces.jpg" alt="أشكال عضوية من الأكواب الخزفية خلال التجربة في برانش" width="1050" height="1400">
+        <figcaption><span>من شغل برانش</span><span dir="ltr" lang="en">A LITTLE ART, A LOT OF SOUL.</span></figcaption>
+      </figure>
+      <div class="catalog-announcement" data-reveal>
+        <span class="catalog-status"><span aria-hidden="true"></span> قريبًا على الرفّ</span>
+        <span class="catalog-flower" aria-hidden="true">✳</span>
+        <p class="catalog-kicker" dir="ltr" lang="en">THE BRANCH SHELF</p>
+        <h2 id="catalog-empty-title">القطع المتوفرة<br>قريبًا.</h2>
+        <p class="catalog-description">هون رح تلاقي القطع الجاهزة مع صورها وأسعارها. لحد ما تنزل، فيك تطلبي قطعة حسب ذوقك.</p>
+        <a class="button button-sun" href="/request/?type=custom">اطلبي قطعة على ذوقك <span aria-hidden="true">↙</span></a>
+        <a class="catalog-secondary-link" href="/services/">اكتشفي خدمات برانش <span aria-hidden="true">←</span></a>
+      </div>
+    </section>
+
+    <section class="catalog-next-steps" aria-label="خيارات برانش">
+      <a class="catalog-next-step" href="/request/?type=custom" data-reveal>
+        <span class="catalog-step-number" dir="ltr" lang="en">01 / MADE FOR YOU</span>
+        <div><h2>في بالك قطعة معيّنة؟</h2><p>احكيلنا فكرتك، وبنراجع معك التفاصيل والسعر قبل ما نبدأ.</p></div>
+        <span class="catalog-step-arrow" aria-hidden="true">↙</span>
+      </a>
+      <a class="catalog-next-step" href="/workshops/" data-reveal>
+        <span class="catalog-step-number" dir="ltr" lang="en">02 / MAKE IT YOURSELF</span>
+        <div><h2>أو جرّبي تعمليها بإيدك.</h2><p>شوفي مواعيد الورش الفنية، وخلي التجربة بداية حكايتك.</p></div>
+        <span class="catalog-step-arrow" aria-hidden="true">↙</span>
+      </a>
+    </section>
+      <section class="privacy-strip" id="privacy" aria-label="الخصوصية">
+      <details><summary>تفاصيل الخصوصية</summary><p>نستخدم الاسم ورقم الهاتف والمدينة وعنوان التوصيل وتفاصيل الطلب وأسماء المشاركين في الحجز للتواصل وإدارة الطلب فقط. لا نطلب بيانات بطاقات الدفع. نحفظ اختيارات السلة على جهازك، وبيانات محاولة إرسال غير مؤكدة مؤقتًا خلال جلسة التصفح لمنع تكرار الطلب. للوصول إلى بياناتك أو طلب حذفها، تواصلي معنا عبر <a href="https://wa.me/970568387456" target="_blank" rel="noopener noreferrer">واتساب</a>.</p></details>
+    </section>
+    <dialog class="product-detail" id="product-detail" aria-labelledby="product-detail-title">
+      <button class="product-detail-close" type="button" data-close-product aria-label="إغلاق تفاصيل القطعة">×</button>
+      <div class="product-detail-gallery"></div>
+      <div class="product-detail-copy"><h2 id="product-detail-title"></h2><p class="product-detail-description"></p><p class="product-detail-price"></p><p class="product-detail-stock"></p><div class="product-detail-action"></div><p class="shop-message" data-shop-message role="status" aria-live="polite"></p><a class="text-link" href="/cart/">عرض السلة ←</a></div>
+    </dialog>
+    <aside class="cart-notification" id="cart-notification" aria-label="تحديث العربة" hidden>
+      <span class="cart-icon" aria-hidden="true"></span>
+      <div class="cart-notification-copy">
+        <p class="cart-notification-message" data-cart-notification-message role="status" aria-live="polite" aria-atomic="true"></p>
+        <a class="text-link" href="/cart/">عرض العربة <span aria-hidden="true">←</span></a>
+      </div>
+      <button class="cart-notification-close" type="button" data-dismiss-cart-notification aria-label="إغلاق الإشعار" title="إغلاق الإشعار"><span aria-hidden="true"></span></button>
+    </aside>
+  </main>
+    <footer class="site-footer">
+    <a class="footer-display" href="/request/" dir="ltr" lang="en" aria-label="اطلبي قطعة من برانش">LET’S MAKE<br>SOMETHING YOURS.<span aria-hidden="true">↗</span></a>
+    <a class="wordmark footer-wordmark" href="/" aria-label="برانش ستوديو، الصفحة الرئيسية"><span class="brand-logo" aria-hidden="true"></span></a>
+    <span>مصنوع بحب في فلسطين <span aria-hidden="true">✳</span> 2026</span>
+    <a href="https://wa.me/970568387456" target="_blank" rel="noopener noreferrer">تواصلي مع برانش ↗</a>
+    <a class="footer-privacy" href="#privacy">الخصوصية</a>
+  </footer>
+</body>
+</html>
